@@ -1,0 +1,40 @@
+{%load static%}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ProjetoUm</title>
+    <link rel="stylesheet" href="{%static 'css/style.css'%}">
+</head>
+<body>
+    <center>
+    <h1>Pagina principal</h1>
+    <h2>{{ curso }} </h2>
+    <p>{{ outro }}</p>
+    <h3>Estado: {{ teste }}</h3>
+    <img src="{%static 'img/images.png'%}" alt="">
+    <table>
+        <thead>
+            <tr>
+                <th>Produto</th>
+                <th>Preço</th>
+                <!-- <th>Estoque</th>  -->
+            </tr>
+        </thead>
+        <tbody>
+            {% for produto in produtos %}
+            <tr>
+                <td><a href="{% url 'produto' produto.id %}">{{produto.nome }}</a></td>
+                <td>{{produto.preco }}</td>
+                <!-- <td>{{produto.estoque }}</td> -->
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+
+    <button onclick="teste()">Clique aqui</button>
+
+    <script type="text/javascript" src="{% static 'js/script.js' %}"></script>
+</body>
+</html> 
